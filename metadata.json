@@ -1,0 +1,6 @@
+{
+  "name": "Library Management System",
+  "description": "A library management system for tracking books, members, and loans in an academic library.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
