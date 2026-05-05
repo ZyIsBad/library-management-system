@@ -43,7 +43,7 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="p-8 max-w-7xl mx-auto"
+      className="w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8"
       id="catalog-view"
     >
       <AddBookModal 
@@ -68,21 +68,21 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
         onBorrow={onBorrow} 
       />
 
-      <div className="flex justify-between items-end mb-10" id="catalog-header">
+      <div className="flex flex-col gap-5 mb-8 sm:flex-row sm:items-end sm:justify-between lg:mb-10" id="catalog-header">
         <div>
-          <h2 className="font-serif text-5xl text-slate-900 mb-2" id="catalog-title">Book Catalog</h2>
-          <p className="text-slate-500 text-lg font-outfit" id="catalog-subtitle">Browse and manage your library collection</p>
+          <h2 className="font-serif text-4xl text-slate-900 mb-2 sm:text-5xl" id="catalog-title">Book Catalog</h2>
+          <p className="text-slate-500 text-base font-outfit sm:text-lg" id="catalog-subtitle">Browse and manage your library collection</p>
         </div>
         <button 
           onClick={() => setIsAddModalOpen(true)}
-          className="flex items-center gap-2 bg-[#712A2A] text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-red-900/10 hover:bg-[#5d2222] transition-colors"
+          className="flex w-full items-center justify-center gap-2 bg-[#712A2A] text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-red-900/10 hover:bg-[#5d2222] transition-colors sm:w-auto"
         >
           <Plus size={20} />
           <span>Add Book</span>
         </button>
       </div>
 
-      <div className="flex gap-4 mb-10" id="catalog-filters">
+      <div className="flex flex-col gap-3 mb-8 sm:flex-row sm:gap-4 lg:mb-10" id="catalog-filters">
         <div className="relative flex-1" id="search-container">
           <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
           <input 
@@ -94,13 +94,13 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
             id="book-search"
           />
         </div>
-        <button className="flex items-center gap-2 px-6 py-4 bg-[#F2ECE4] border-none rounded-xl text-slate-700 font-bold hover:bg-[#EAE2D8] transition-colors" id="filter-button">
+        <button className="flex items-center justify-center gap-2 px-6 py-4 bg-[#F2ECE4] border-none rounded-xl text-slate-700 font-bold hover:bg-[#EAE2D8] transition-colors sm:w-auto" id="filter-button">
           <Filter size={20} />
           <span>All</span>
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="books-grid">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8" id="books-grid">
         {filteredBooks.map((book) => (
           <div key={book.id} className="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 group" id={`book-card-${book.id}`}>
             <div className={`${book.color} h-44 flex items-center justify-center text-white/90 relative overflow-hidden`} id={`book-cover-${book.id}`}>
@@ -112,7 +112,7 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
               {/* Edit Button - Top Right */}
               <button 
                 onClick={(e) => handleEditInitiate(e, book)}
-                className="absolute top-4 right-4 z-30 p-2 bg-white/20 backdrop-blur-md text-white rounded-xl opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:text-slate-900"
+                className="absolute top-4 right-4 z-30 p-2 bg-white/25 backdrop-blur-md text-white rounded-xl opacity-100 transition-all hover:bg-white hover:text-slate-900 sm:opacity-0 sm:group-hover:opacity-100"
               >
                 <Edit3 size={18} />
               </button>

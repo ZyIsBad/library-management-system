@@ -48,15 +48,15 @@ const EditMemberModal: React.FC<EditMemberModalProps> = ({ isOpen, onClose, memb
   return (
     <AnimatePresence>
       {isOpen && member && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 overflow-y-auto px-4 py-6 sm:flex sm:items-center sm:justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden"
+            className="mx-auto w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden"
           >
-            <div className="p-8 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-              <div>
+            <div className="p-5 border-b border-slate-100 flex items-start justify-between gap-4 bg-slate-50/50 sm:p-8 sm:items-center">
+              <div className="min-w-0">
                 <h2 className="text-2xl font-serif font-bold text-slate-900">Edit Member</h2>
                 <p className="text-slate-500 text-sm mt-1 font-outfit">Update member contact info</p>
               </div>
@@ -74,7 +74,7 @@ const EditMemberModal: React.FC<EditMemberModalProps> = ({ isOpen, onClose, memb
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-8 space-y-5">
+            <form onSubmit={handleSubmit} className="p-5 space-y-5 sm:p-8">
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-widest px-1">Full Name</label>
                 <input

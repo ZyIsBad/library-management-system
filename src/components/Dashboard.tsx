@@ -24,17 +24,17 @@ const Dashboard: React.FC<DashboardProps> = ({ books, members, loans }) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="p-8 max-w-7xl mx-auto"
+      className="w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8"
       id="dashboard-view"
     >
-      <div className="mb-10" id="dashboard-header">
-        <h2 className="font-serif text-5xl text-slate-900 mb-2" id="dashboard-title">Library Overview</h2>
-        <p className="text-slate-500 text-lg font-outfit" id="dashboard-subtitle">Welcome to your library management system</p>
+      <div className="mb-8 lg:mb-10" id="dashboard-header">
+        <h2 className="font-serif text-4xl text-slate-900 mb-2 sm:text-5xl" id="dashboard-title">Library Overview</h2>
+        <p className="text-slate-500 text-base font-outfit sm:text-lg" id="dashboard-subtitle">Welcome to your library management system</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" id="stats-grid">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6 mb-8 lg:mb-12" id="stats-grid">
         {stats.map((stat, i) => (
-          <div key={i} className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow" id={`stat-${stat.label}`}>
+          <div key={i} className="bg-white p-5 sm:p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow" id={`stat-${stat.label}`}>
             <div className={`w-12 h-12 ${stat.color} rounded-xl flex items-center justify-center mb-6`}>
               <stat.icon size={24} />
             </div>
@@ -44,10 +44,10 @@ const Dashboard: React.FC<DashboardProps> = ({ books, members, loans }) => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" id="activity-popularity-grid">
-        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm" id="recent-activity">
-          <h3 className="text-2xl font-serif font-bold text-slate-900 mb-8">Recent Activity</h3>
-          <div className="space-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8" id="activity-popularity-grid">
+        <div className="bg-white p-5 sm:p-8 rounded-xl border border-slate-100 shadow-sm" id="recent-activity">
+          <h3 className="text-2xl font-serif font-bold text-slate-900 mb-6 sm:mb-8">Recent Activity</h3>
+          <div className="space-y-6 sm:space-y-8">
             <div className="flex gap-4">
               <div className="mt-1.5 w-2 h-2 rounded-full bg-[#712A2A] shrink-0" />
               <div>
@@ -70,12 +70,12 @@ const Dashboard: React.FC<DashboardProps> = ({ books, members, loans }) => {
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm" id="popular-books">
-          <h3 className="text-2xl font-serif font-bold text-slate-900 mb-8">Popular Books</h3>
+        <div className="bg-white p-5 sm:p-8 rounded-xl border border-slate-100 shadow-sm" id="popular-books">
+          <h3 className="text-2xl font-serif font-bold text-slate-900 mb-6 sm:mb-8">Popular Books</h3>
           <div className="space-y-6">
             {popularBooks.map((book) => (
-              <div key={book.id} className="flex items-center justify-between pb-6 border-b border-slate-50 last:border-0 last:pb-0">
-                <div>
+              <div key={book.id} className="flex flex-col gap-3 pb-6 border-b border-slate-50 last:border-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between">
+                <div className="min-w-0">
                   <h4 className="font-bold text-slate-800 text-lg">{book.title}</h4>
                   <p className="text-slate-500 text-sm">{book.author}</p>
                 </div>
