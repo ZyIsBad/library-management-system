@@ -24,15 +24,15 @@ const BorrowedBooks: React.FC<BorrowedBooksProps> = ({ loans, onReturn }) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="p-8 max-w-7xl mx-auto"
+      className="w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8"
       id="borrowed-view"
     >
-      <div className="mb-10" id="borrowed-header">
-        <h2 className="font-serif text-5xl text-slate-900 mb-2" id="borrowed-title">Borrowed Books</h2>
-        <p className="text-slate-500 text-lg font-outfit" id="borrowed-subtitle">Track and manage book loans</p>
+      <div className="mb-8 lg:mb-10" id="borrowed-header">
+        <h2 className="font-serif text-4xl text-slate-900 mb-2 sm:text-5xl" id="borrowed-title">Borrowed Books</h2>
+        <p className="text-slate-500 text-base font-outfit sm:text-lg" id="borrowed-subtitle">Track and manage book loans</p>
       </div>
 
-      <div className="mb-10" id="borrowed-search-container">
+      <div className="mb-8 lg:mb-10" id="borrowed-search-container">
         <div className="relative max-w-full" id="loan-search-wrapper">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
           <input 
@@ -46,20 +46,20 @@ const BorrowedBooks: React.FC<BorrowedBooksProps> = ({ loans, onReturn }) => {
         </div>
       </div>
 
-      <div className="space-y-12" id="loans-sections">
+      <div className="space-y-8 lg:space-y-12" id="loans-sections">
         {/* Overdue Section */}
-        <div className="bg-rose-50/30 border border-rose-100 rounded-xl p-8" id="overdue-section">
-          <div className="flex items-center gap-2 mb-8 text-rose-800" id="overdue-label">
+        <div className="bg-rose-50/30 border border-rose-100 rounded-xl p-4 sm:p-6 lg:p-8" id="overdue-section">
+          <div className="flex items-center gap-2 mb-6 text-rose-800 sm:mb-8" id="overdue-label">
             <AlertCircle size={20} />
             <h3 className="font-serif text-2xl lowercase italic">Overdue Books <span className="font-sans not-italic text-lg font-bold">({overdue.length})</span></h3>
           </div>
           <div className="space-y-6" id="overdue-list">
             {overdue.map((loan) => (
-              <div key={loan.id} className="bg-white border border-rose-100/50 rounded-xl p-8 flex justify-between items-center shadow-sm hover:shadow-md transition-shadow" id={`loan-${loan.id}`}>
-                <div>
-                  <h4 className="font-serif text-3xl text-slate-900 mb-2">{loan.bookTitle}</h4>
+              <div key={loan.id} className="bg-white border border-rose-100/50 rounded-xl p-5 sm:p-8 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow lg:flex-row lg:items-center lg:justify-between" id={`loan-${loan.id}`}>
+                <div className="min-w-0">
+                  <h4 className="font-serif text-2xl text-slate-900 mb-2 sm:text-3xl">{loan.bookTitle}</h4>
                   <p className="text-slate-500 text-base mb-6 font-medium">{loan.author}</p>
-                  <div className="flex gap-8 text-sm" id={`loan-info-${loan.id}`}>
+                  <div className="flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8" id={`loan-info-${loan.id}`}>
                     <span className="text-slate-600">Borrowed by: <span className="font-bold text-slate-900">{loan.memberName}</span></span>
                     <span className="text-slate-600">Borrowed: <span className="font-bold text-slate-900">{loan.borrowedDate}</span></span>
                     <span className="text-rose-600 font-bold">Due: {loan.dueDate}</span>
@@ -67,7 +67,7 @@ const BorrowedBooks: React.FC<BorrowedBooksProps> = ({ loans, onReturn }) => {
                 </div>
                 <button 
                   onClick={() => onReturn(loan.id)}
-                  className="bg-[#1A4D2E] text-white px-8 py-3.5 rounded-xl font-bold text-base shadow-lg shadow-teal-900/10 hover:bg-[#143d24] transition-all transform active:scale-95" 
+                  className="w-full bg-[#1A4D2E] text-white px-8 py-3.5 rounded-xl font-bold text-base shadow-lg shadow-teal-900/10 hover:bg-[#143d24] transition-all transform active:scale-95 sm:w-auto" 
                   id={`return-btn-overdue-${loan.id}`}
                 >
                   Mark Returned
@@ -78,18 +78,18 @@ const BorrowedBooks: React.FC<BorrowedBooksProps> = ({ loans, onReturn }) => {
         </div>
 
         {/* Active Section */}
-        <div className="bg-slate-50/50 border border-slate-200 rounded-xl p-8" id="active-section">
-          <div className="flex items-center gap-2 mb-8 text-emerald-800" id="active-label">
+        <div className="bg-slate-50/50 border border-slate-200 rounded-xl p-4 sm:p-6 lg:p-8" id="active-section">
+          <div className="flex items-center gap-2 mb-6 text-emerald-800 sm:mb-8" id="active-label">
             <CheckCircle2 size={20} />
             <h3 className="font-serif text-2xl lowercase italic">Active Loans <span className="font-sans not-italic text-lg font-bold">({active.length})</span></h3>
           </div>
           <div className="space-y-6" id="active-list">
             {active.map((loan) => (
-              <div key={loan.id} className="bg-white border border-slate-100 rounded-xl p-8 flex justify-between items-center shadow-sm hover:shadow-md transition-shadow" id={`loan-${loan.id}`}>
-                <div>
-                  <h4 className="font-serif text-3xl text-slate-900 mb-2">{loan.bookTitle}</h4>
+              <div key={loan.id} className="bg-white border border-slate-100 rounded-xl p-5 sm:p-8 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow lg:flex-row lg:items-center lg:justify-between" id={`loan-${loan.id}`}>
+                <div className="min-w-0">
+                  <h4 className="font-serif text-2xl text-slate-900 mb-2 sm:text-3xl">{loan.bookTitle}</h4>
                   <p className="text-slate-500 text-base mb-6 font-medium">{loan.author}</p>
-                  <div className="flex gap-8 text-sm" id={`loan-info-${loan.id}`}>
+                  <div className="flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8" id={`loan-info-${loan.id}`}>
                     <span className="text-slate-600">Borrowed by: <span className="font-bold text-slate-900">{loan.memberName}</span></span>
                     <span className="text-slate-600">Borrowed: <span className="font-bold text-slate-900">{loan.borrowedDate}</span></span>
                     <span className="text-slate-600">Due: <span className="font-bold text-slate-900">{loan.dueDate}</span></span>
@@ -97,7 +97,7 @@ const BorrowedBooks: React.FC<BorrowedBooksProps> = ({ loans, onReturn }) => {
                 </div>
                 <button 
                   onClick={() => onReturn(loan.id)}
-                  className="bg-[#1A4D2E] text-white px-8 py-3.5 rounded-xl font-bold text-base shadow-lg shadow-teal-900/10 hover:bg-[#143d24] transition-all transform active:scale-95" 
+                  className="w-full bg-[#1A4D2E] text-white px-8 py-3.5 rounded-xl font-bold text-base shadow-lg shadow-teal-900/10 hover:bg-[#143d24] transition-all transform active:scale-95 sm:w-auto" 
                   id={`return-btn-active-${loan.id}`}
                 >
                   Mark Returned

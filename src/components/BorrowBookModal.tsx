@@ -44,19 +44,19 @@ const BorrowBookModal: React.FC<BorrowBookModalProps> = ({ isOpen, onClose, book
   return (
     <AnimatePresence>
       {isOpen && book && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 overflow-y-auto px-4 py-6 sm:flex sm:items-center sm:justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden"
+            className="mx-auto w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden"
           >
-            <div className="p-8 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-              <div className="flex items-center gap-3">
+            <div className="p-5 border-b border-slate-100 flex items-start justify-between gap-4 bg-slate-50/50 sm:p-8 sm:items-center">
+              <div className="flex min-w-0 items-center gap-3">
                 <div className={`w-10 h-10 ${book.color} rounded-lg flex items-center justify-center text-white`}>
                   <BookOpen size={20} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h2 className="text-xl font-bold text-slate-900 leading-tight">Borrow Book</h2>
                   <p className="text-slate-500 text-xs mt-0.5 font-bold uppercase tracking-wider">{book.title}</p>
                 </div>
@@ -66,9 +66,9 @@ const BorrowBookModal: React.FC<BorrowBookModalProps> = ({ isOpen, onClose, book
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-8 space-y-6">
+            <form onSubmit={handleSubmit} className="p-5 space-y-6 sm:p-8">
               <div className="space-y-3 font-outfit text-slate-600 bg-[#F1F5F9] p-4 rounded-xl border border-slate-200">
-                <div className="flex justify-between items-center text-xs font-bold uppercase tracking-widest text-slate-400 px-1">
+                <div className="flex flex-col gap-1 text-xs font-bold uppercase tracking-widest text-slate-400 px-1 sm:flex-row sm:items-center sm:justify-between">
                   <span>Loan Duration</span>
                   <span className="text-[#712A2A]">14 Days Standard</span>
                 </div>
