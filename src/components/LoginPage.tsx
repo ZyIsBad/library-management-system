@@ -22,7 +22,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F9F7F5] flex flex-col items-center justify-center p-6 relative overflow-hidden" id="login-page">
+    <div className="min-h-screen bg-[#F9F7F5] flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden" id="login-page">
       {/* Background Decorative Elements */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#712A2A]/5 rounded-full blur-3xl" />
       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#712A2A]/5 rounded-full blur-3xl" />
@@ -33,19 +33,19 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         className="w-full max-w-md"
         id="login-container"
       >
-        <div className="text-center mb-10" id="login-header">
-          <div className="inline-flex w-20 h-20 bg-[#712A2A] rounded-xl items-center justify-center text-white mb-6 shadow-2xl shadow-red-900/20" id="login-logo">
-            <Library size={40} strokeWidth={1.5} />
+        <div className="text-center mb-8 sm:mb-10" id="login-header">
+          <div className="inline-flex w-16 h-16 bg-[#712A2A] rounded-xl items-center justify-center text-white mb-5 shadow-2xl shadow-red-900/20 sm:h-20 sm:w-20 sm:mb-6" id="login-logo">
+            <Library size={36} strokeWidth={1.5} />
           </div>
-          <h1 className="font-serif text-[48px] text-[#0F172A] leading-tight font-bold tracking-tight" id="login-title">
+          <h1 className="font-serif text-[40px] text-[#0F172A] leading-tight font-bold tracking-tight sm:text-[48px]" id="login-title">
             Library
           </h1>
-          <p className="text-[#64748B] font-outfit font-bold uppercase tracking-[0.3em] text-sm mt-2" id="login-subtitle">
+          <p className="text-[#64748B] font-outfit font-bold uppercase tracking-[0.2em] text-xs mt-2 sm:text-sm sm:tracking-[0.3em]" id="login-subtitle">
             Management System
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-2xl shadow-slate-200/50 border border-slate-100 p-10 relative z-10" id="login-card">
+        <div className="bg-white rounded-xl shadow-2xl shadow-slate-200/50 border border-slate-100 p-5 relative z-10 sm:p-10" id="login-card">
           <div className="mb-8" id="admin-indicator">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-700 rounded-full border border-amber-100/50">
               <Lock size={12} />

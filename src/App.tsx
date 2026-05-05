@@ -8,12 +8,14 @@ import Members from './components/Members';
 import LoginPage from './components/LoginPage';
 import { AnimatePresence } from 'motion/react';
 import { MOCK_BOOKS, MOCK_MEMBERS, MOCK_LOANS } from './constants';
+import { Menu } from 'lucide-react';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem('lib_isLoggedIn') === 'true';
   });
   const [currentView, setCurrentView] = useState<View>('dashboard');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const [books, setBooks] = useState<Book[]>(MOCK_BOOKS);
   const [members, setMembers] = useState<Member[]>(MOCK_MEMBERS);
@@ -58,6 +60,11 @@ export default function App() {
 
   const handleUpdateMember = (id: string, updatedFields: Partial<Member>) => {
     setMembers(prev => prev.map(m => m.id === id ? { ...m, ...updatedFields } : m));
+  };
+
+  const handleViewChange = (view: View) => {
+    setCurrentView(view);
+    setIsMobileMenuOpen(false);
   };
 
   const handleDeleteMember = (id: string) => {
@@ -165,13 +172,42 @@ export default function App() {
   }
 
   return (
-    <div className="flex h-screen bg-[#F9F7F5] overflow-hidden" id="app-container">
-      <Sidebar currentView={currentView} onViewChange={setCurrentView} onLogout={() => setIsLoggedIn(false)} />
+    <div className="flex min-h-screen flex-col bg-[#F9F7F5] lg:h-screen lg:flex-row lg:overflow-hidden" id="app-container">
+      {isMobileMenuOpen && (
+        <button
+          type="button"
+          aria-label="Close navigation menu"
+          className="fixed inset-0 z-40 bg-slate-950/40 backdrop-blur-[2px] lg:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      <Sidebar
+        currentView={currentView}
+        onViewChange={handleViewChange}
+        onLogout={() => setIsLoggedIn(false)}
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
       
       <main className="flex-1 flex flex-col overflow-y-auto" id="main-content">
-        <div className="px-8 pt-6 flex justify-between items-center" id="page-header">
-          <div className="text-sm font-medium text-slate-400 capitalize">{getTitle()}</div>
-          <div className="text-sm font-medium text-slate-500">Today: April 14, 2026</div>
+        <div className="flex items-center justify-between gap-3 px-4 pt-4 sm:px-6 lg:px-8 lg:pt-6" id="page-header">
+          <div className="flex min-w-0 items-center gap-3">
+            <button
+              type="button"
+              aria-label="Open navigation menu"
+              aria-expanded={isMobileMenuOpen}
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F2ECE4] text-[#712A2A] transition-colors hover:bg-[#EAE2D8] lg:hidden"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Menu size={22} />
+            </button>
+            <div className="min-w-0">
+              <div className="text-sm font-medium text-slate-400 capitalize">{getTitle()}</div>
+              <div className="text-xs font-medium text-slate-500 sm:hidden">Today: April 14, 2026</div>
+            </div>
+          </div>
+          <div className="hidden text-sm font-medium text-slate-500 sm:block">Today: April 14, 2026</div>
         </div>
         
         <div className="flex-1" id="view-container">
