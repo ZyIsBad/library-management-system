@@ -57,7 +57,7 @@ const Members: React.FC<MembersProps> = ({ members, onAddMember, onUpdateMember,
         </div>
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="flex w-full items-center justify-center gap-2 bg-[#712A2A] text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-red-900/10 hover:bg-[#5d2222] transition-colors sm:w-auto" 
+          className="flex w-full items-center justify-center gap-2 bg-[#000096] text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-blue-900/10 hover:bg-[#00006f] transition-colors sm:w-auto" 
           id="add-member-btn"
         >
           <UserPlus size={20} />
@@ -71,7 +71,7 @@ const Members: React.FC<MembersProps> = ({ members, onAddMember, onUpdateMember,
           <input 
             type="text"
             placeholder="Search members..."
-            className="w-full pl-12 pr-4 py-4 bg-[#F2ECE4] border-none rounded-xl focus:ring-2 focus:ring-[#712A2A] text-slate-700 font-medium transition-all"
+            className="w-full pl-12 pr-4 py-4 bg-[#F2ECE4] border-none rounded-xl focus:ring-2 focus:ring-[#000096] text-slate-700 font-medium transition-all"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             id="member-search"
@@ -84,7 +84,7 @@ const Members: React.FC<MembersProps> = ({ members, onAddMember, onUpdateMember,
           <div key={member.id} className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm hover:shadow-md transition-all group relative sm:p-6" id={`member-card-${member.id}`}>
             <button 
               onClick={() => handleEditInitiate(member)}
-              className="absolute top-6 right-6 p-2 text-slate-300 hover:text-[#712A2A] hover:bg-red-50 rounded-lg transition-all"
+              className="absolute top-6 right-6 p-2 text-slate-300 hover:text-[#000096] hover:bg-blue-50 rounded-lg transition-all"
               id={`edit-member-${member.id}`}
             >
               <Edit2 size={18} />
@@ -94,13 +94,13 @@ const Members: React.FC<MembersProps> = ({ members, onAddMember, onUpdateMember,
             </div>
             
             <div className="flex gap-4 items-start pr-20 sm:gap-6" id={`member-content-${member.id}`}>
-              <div className="w-14 h-14 shrink-0 bg-[#F2ECE4] rounded-full flex items-center justify-center font-serif text-lg font-bold text-[#712A2A] sm:h-16 sm:w-16 sm:text-xl" id={`member-avatar-${member.id}`}>
+              <div className="w-14 h-14 shrink-0 bg-[#F2ECE4] rounded-full flex items-center justify-center font-serif text-lg font-bold text-[#000096] sm:h-16 sm:w-16 sm:text-xl" id={`member-avatar-${member.id}`}>
                 {member.name.split(' ').map(n => n[0]).join('')}
               </div>
               
               <div className="min-w-0 space-y-3" id={`member-info-${member.id}`}>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 transition-colors group-hover:text-[#712A2A]">{member.name}</h3>
+                  <h3 className="text-xl font-bold text-slate-800 transition-colors group-hover:text-[#000096]">{member.name}</h3>
                   <span className={`inline-block px-3 py-0.5 rounded-md text-xs font-bold uppercase tracking-wider mt-1 ${member.status === 'active' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-500'}`}>
                     {member.status}
                   </span>

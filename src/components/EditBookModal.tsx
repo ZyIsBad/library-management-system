@@ -84,7 +84,7 @@ const EditBookModal: React.FC<EditBookModalProps> = ({ isOpen, onClose, book, on
                 <input
                   required
                   type="text"
-                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700"
+                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 />
@@ -95,7 +95,7 @@ const EditBookModal: React.FC<EditBookModalProps> = ({ isOpen, onClose, book, on
                 <input
                   required
                   type="text"
-                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700"
+                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700"
                   value={formData.author}
                   onChange={(e) => setFormData({ ...formData, author: e.target.value })}
                 />
@@ -105,7 +105,7 @@ const EditBookModal: React.FC<EditBookModalProps> = ({ isOpen, onClose, book, on
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-widest px-1">Genre</label>
                   <select
-                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700 appearance-none font-outfit"
+                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700 appearance-none font-outfit"
                     value={formData.genre}
                     onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
                   >
@@ -127,7 +127,7 @@ const EditBookModal: React.FC<EditBookModalProps> = ({ isOpen, onClose, book, on
                     required
                     type="number"
                     min="1"
-                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700"
+                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700"
                     value={formData.totalCount}
                     onChange={(e) => setFormData({ ...formData, totalCount: parseInt(e.target.value) || 1 })}
                   />

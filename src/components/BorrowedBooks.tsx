@@ -38,7 +38,7 @@ const BorrowedBooks: React.FC<BorrowedBooksProps> = ({ loans, onReturn }) => {
           <input 
             type="text"
             placeholder="Search by book or member..."
-            className="w-full pl-12 pr-4 py-4 bg-[#F2ECE4] border-none rounded-xl focus:ring-2 focus:ring-[#712A2A] text-slate-700 font-medium transition-all"
+            className="w-full pl-12 pr-4 py-4 bg-[#F2ECE4] border-none rounded-xl focus:ring-2 focus:ring-[#000096] text-slate-700 font-medium transition-all"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             id="loan-search"

@@ -49,7 +49,7 @@ const Dashboard: React.FC<DashboardProps> = ({ books, members, loans }) => {
           <h3 className="text-2xl font-serif font-bold text-slate-900 mb-6 sm:mb-8">Recent Activity</h3>
           <div className="space-y-6 sm:space-y-8">
             <div className="flex gap-4">
-              <div className="mt-1.5 w-2 h-2 rounded-full bg-[#712A2A] shrink-0" />
+              <div className="mt-1.5 w-2 h-2 rounded-full bg-[#000096] shrink-0" />
               <div>
                 <p className="text-slate-800 font-semibold leading-tight">System initialized with {books.length} books</p>
                 <p className="text-slate-400 text-xs mt-1.5 font-medium uppercase tracking-wider">System Log</p>
