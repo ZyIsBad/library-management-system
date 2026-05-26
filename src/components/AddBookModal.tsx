@@ -49,7 +49,7 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onAdd }) =
                 <input
                   required
                   type="text"
-                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700"
+                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700"
                   placeholder="e.g. The Great Gatsby"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
@@ -61,7 +61,7 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onAdd }) =
                 <input
                   required
                   type="text"
-                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700"
+                  className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700"
                   placeholder="e.g. F. Scott Fitzgerald"
                   value={formData.author}
                   onChange={(e) => setFormData({ ...formData, author: e.target.value })}
@@ -72,7 +72,7 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onAdd }) =
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Genre</label>
                   <select
-                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700 appearance-none font-outfit"
+                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700 appearance-none font-outfit"
                     value={formData.genre}
                     onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
                   >
@@ -90,7 +90,7 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onAdd }) =
                     required
                     type="number"
                     min="1"
-                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all font-medium text-slate-700"
+                    className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all font-medium text-slate-700"
                     value={formData.totalCount}
                     onChange={(e) => setFormData({ ...formData, totalCount: parseInt(e.target.value) || 1 })}
                   />
@@ -100,7 +100,7 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onAdd }) =
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#712A2A] text-white py-4 rounded-xl font-bold shadow-lg shadow-red-900/20 hover:bg-[#5d2222] transition-all transform active:scale-95"
+                  className="w-full bg-[#000096] text-white py-4 rounded-xl font-bold shadow-lg shadow-blue-900/20 hover:bg-[#00006f] transition-all transform active:scale-95"
                 >
                   Add to Catalog
                 </button>

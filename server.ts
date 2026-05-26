@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
+import crypto from 'crypto';
 
 dotenv.config();
 
@@ -35,6 +36,36 @@ const withClient = async <T>(cb: (client: import('pg').PoolClient) => Promise<T>
   }
 };
 
+const toBook = (row: any) => ({
+  id: row.id,
+  title: row.title,
+  author: row.author,
+  genre: row.genre,
+  availableCount: Number(row.available_count),
+  totalCount: Number(row.total_count),
+  color: row.color,
+});
+
+const toMember = (row: any) => ({
+  id: row.id,
+  name: row.name,
+  email: row.email,
+  phone: row.phone,
+  joinedDate: row.joined_date,
+  status: row.status,
+  borrowedCount: Number(row.borrowed_count),
+});
+
+const toLoan = (row: any) => ({
+  id: row.id,
+  bookTitle: row.book_title,
+  author: row.author,
+  memberName: row.member_name,
+  borrowedDate: row.borrowed_date,
+  dueDate: row.due_date,
+  isOverdue: Boolean(row.is_overdue),
+});
+
 app.get('/api/health', (_, res) => {
   res.json({ status: 'ok' });
 });
@@ -42,7 +73,7 @@ app.get('/api/health', (_, res) => {
 app.get('/api/books', async (_, res) => {
   try {
     const result = await runQuery('SELECT * FROM books ORDER BY title');
-    res.json(result.rows);
+    res.json(result.rows.map(toBook));
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to load books' });
@@ -102,7 +133,7 @@ app.delete('/api/books/:id', async (req, res) => {
 app.get('/api/members', async (_, res) => {
   try {
     const result = await runQuery('SELECT * FROM members ORDER BY name');
-    res.json(result.rows);
+    res.json(result.rows.map(toMember));
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to load members' });
@@ -159,7 +190,7 @@ app.delete('/api/members/:id', async (req, res) => {
 app.get('/api/loans', async (_, res) => {
   try {
     const result = await runQuery('SELECT * FROM loans ORDER BY borrowed_date DESC');
-    res.json(result.rows);
+    res.json(result.rows.map(toLoan));
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to load loans' });
@@ -232,7 +263,7 @@ app.delete('/api/loans/:id', async (req, res) => {
   }
 });
 
-const port = Number(process.env.PORT || 4000);
+const port = Number(process.env.PORT || 4002);
 app.listen(port, () => {
   console.log(`PostgreSQL API server listening on http://localhost:${port}`);
 });

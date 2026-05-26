@@ -62,7 +62,7 @@
 }
 
 .sidebar-item-active {
-  @apply bg-[#712A2A] text-white flex items-center gap-3 py-3 px-4 rounded-xl transition-all duration-200 shadow-sm;
+  @apply bg-[#000096] text-white flex items-center gap-3 py-3 px-4 rounded-xl transition-all duration-200 shadow-sm;
 }
 
 .sidebar-item {

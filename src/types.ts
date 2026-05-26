@@ -18,6 +18,8 @@ export interface Member {
   joinedDate: string;
   status: 'active' | 'inactive';
   borrowedCount: number;
+  section?: string;
+  yearLevel?: string;
 }
 
 export interface Loan {

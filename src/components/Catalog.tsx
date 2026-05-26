@@ -75,7 +75,7 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
         </div>
         <button 
           onClick={() => setIsAddModalOpen(true)}
-          className="flex w-full items-center justify-center gap-2 bg-[#712A2A] text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-red-900/10 hover:bg-[#5d2222] transition-colors sm:w-auto"
+          className="flex w-full items-center justify-center gap-2 bg-[#000096] text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-blue-900/10 hover:bg-[#00006f] transition-colors sm:w-auto"
         >
           <Plus size={20} />
           <span>Add Book</span>
@@ -88,7 +88,7 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
           <input 
             type="text"
             placeholder="Search by title or author..."
-            className="w-full pl-14 pr-4 py-4 bg-[#F2ECE4] border-none rounded-xl focus:ring-2 focus:ring-[#712A2A] text-slate-700 font-medium transition-all"
+            className="w-full pl-14 pr-4 py-4 bg-[#F2ECE4] border-none rounded-xl focus:ring-2 focus:ring-[#000096] text-slate-700 font-medium transition-all"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             id="book-search"
@@ -118,11 +118,11 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
               </button>
               
               {/* Overlay Borrow Button on Hover */}
-              <div className="absolute inset-0 bg-[#712A2A]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px] z-20">
+              <div className="absolute inset-0 bg-[#000096]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px] z-20">
                 {book.availableCount > 0 ? (
                   <button 
                     onClick={() => handleBorrowInitiate(book)}
-                    className="bg-white text-[#712A2A] px-6 py-3 rounded-xl font-bold shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform flex items-center gap-2"
+                    className="bg-white text-[#000096] px-6 py-3 rounded-xl font-bold shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform flex items-center gap-2"
                   >
                     <HandIcon size={18} />
                     Borrow Now
@@ -133,7 +133,7 @@ const Catalog: React.FC<CatalogProps> = ({ books, members, onBorrow, onAddBook, 
               </div>
             </div>
             <div className="p-6 flex-1 flex flex-col" id={`book-details-${book.id}`}>
-              <h3 className="font-bold text-slate-900 text-xl mb-1 leading-tight group-hover:text-[#712A2A] transition-colors">{book.title}</h3>
+              <h3 className="font-bold text-slate-900 text-xl mb-1 leading-tight group-hover:text-[#000096] transition-colors">{book.title}</h3>
               <p className="text-slate-500 text-sm mb-6 font-medium capitalize">{book.author}</p>
               <div className="mt-auto flex flex-col gap-4" id={`book-meta-${book.id}`}>
                 <div className="flex items-center justify-between">

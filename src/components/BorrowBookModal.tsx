@@ -70,10 +70,10 @@ const BorrowBookModal: React.FC<BorrowBookModalProps> = ({ isOpen, onClose, book
               <div className="space-y-3 font-outfit text-slate-600 bg-[#F1F5F9] p-4 rounded-xl border border-slate-200">
                 <div className="flex flex-col gap-1 text-xs font-bold uppercase tracking-widest text-slate-400 px-1 sm:flex-row sm:items-center sm:justify-between">
                   <span>Loan Duration</span>
-                  <span className="text-[#712A2A]">14 Days Standard</span>
+                  <span className="text-[#000096]">14 Days Standard</span>
                 </div>
                 <p className="text-sm font-medium text-slate-700">
-                  This item must be returned by <span className="font-bold text-[#712A2A]">{dueDate}</span>
+                  This item must be returned by <span className="font-bold text-[#000096]">{dueDate}</span>
                 </p>
               </div>
 
@@ -85,11 +85,11 @@ const BorrowBookModal: React.FC<BorrowBookModalProps> = ({ isOpen, onClose, book
                 
                 {/* Search Input */}
                 <div className="relative group">
-                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#712A2A] transition-colors" size={16} />
+                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#000096] transition-colors" size={16} />
                   <input
                     type="text"
                     placeholder="Search by name or email..."
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#712A2A]/20 focus:border-[#712A2A] transition-all text-sm font-medium"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#000096]/20 focus:border-[#000096] transition-all text-sm font-medium"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
@@ -103,7 +103,7 @@ const BorrowBookModal: React.FC<BorrowBookModalProps> = ({ isOpen, onClose, book
                       onClick={() => setSelectedMemberId(member.id)}
                       className={`flex items-center gap-3 p-3.5 rounded-xl border transition-all text-left ${
                         selectedMemberId === member.id 
-                        ? 'border-[#712A2A] bg-red-50/50 ring-1 ring-[#712A2A]' 
+                        ? 'border-[#000096] bg-blue-50/50 ring-1 ring-[#000096]' 
                         : 'border-slate-100 hover:border-slate-200 bg-white'
                       }`}
                     >
@@ -129,7 +129,7 @@ const BorrowBookModal: React.FC<BorrowBookModalProps> = ({ isOpen, onClose, book
                 <button
                   type="submit"
                   disabled={!selectedMemberId}
-                  className="w-full bg-[#712A2A] disabled:bg-slate-300 text-white py-4 rounded-xl font-bold shadow-lg shadow-red-900/20 hover:bg-[#5d2222] transition-all transform active:scale-95"
+                  className="w-full bg-[#000096] disabled:bg-slate-300 text-white py-4 rounded-xl font-bold shadow-lg shadow-blue-900/20 hover:bg-[#00006f] transition-all transform active:scale-95"
                 >
                   Confirm Loan
                 </button>

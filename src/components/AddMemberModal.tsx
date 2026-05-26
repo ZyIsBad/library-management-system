@@ -50,7 +50,7 @@ const AddMemberModal: React.FC<AddMemberModalProps> = ({ isOpen, onClose, onAdd 
                   <input
                     required
                     type="text"
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all"
                     placeholder="e.g. John Doe"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -62,7 +62,7 @@ const AddMemberModal: React.FC<AddMemberModalProps> = ({ isOpen, onClose, onAdd 
                   <input
                     required
                     type="email"
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all"
                     placeholder="e.g. john@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -74,7 +74,7 @@ const AddMemberModal: React.FC<AddMemberModalProps> = ({ isOpen, onClose, onAdd 
                   <input
                     required
                     type="tel"
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-[#712A2A] outline-none transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-[#000096] outline-none transition-all"
                     placeholder="e.g. (555) 000-0000"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -84,7 +84,7 @@ const AddMemberModal: React.FC<AddMemberModalProps> = ({ isOpen, onClose, onAdd 
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full bg-[#712A2A] text-white py-4 rounded-xl font-bold shadow-lg shadow-red-900/20 hover:bg-[#5d2222] transition-colors"
+                    className="w-full bg-[#000096] text-white py-4 rounded-xl font-bold shadow-lg shadow-blue-900/20 hover:bg-[#00006f] transition-colors"
                   >
                     Register Member
                   </button>
